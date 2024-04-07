@@ -41,6 +41,17 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         // Simulate API request
         console.log('Adding task:', taskData);
+        if (taskData.title && taskData.due_date && taskData.priority) {
+            // Add task to the task list
+            const listItem = document.createElement('li');
+            listItem.textContent = `Title: ${taskData.title}, Due Date: ${taskData.due_date}, Priority: ${taskData.priority}`;
+            taskList.appendChild(listItem);
+
+            // Provide feedback to the user
+            alert('Task added successfully!');
+        } else {
+            alert('Please fill in all fields.');
+        }
         taskForm.reset();
     });
 
@@ -56,3 +67,4 @@ document.addEventListener('DOMContentLoaded', function () {
         taskList.appendChild(listItem);
     });
 });
+
